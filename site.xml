@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
+   <description name="Update Site of the BITtailor eclipse features" url="http://bittailor.github.com">
+      Update Site of the BITtailor eclipse features
+   </description>
    <feature url="features/ch.bittailor.filetemplates.feature_3.0.0.201104212120.jar" id="ch.bittailor.filetemplates.feature" version="3.0.0.201104212120">
       <category name="bittailor.ch"/>
    </feature>
