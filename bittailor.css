@@ -28,9 +28,19 @@ a:focus {
 *.fixed {
 	font-family: 'Courier New', Courier, monospace;
 	color: gray;
-	font-size: 20px;
+	font-size: 16px;
 	/*letter-spacing: 0.42em;*/
-	text-align: justify;
+	text-align: center;
+}
+
+
+
+*.main_text {
+	font-family: 'Courier New', Courier, monospace;
+	color: gray;
+	font-size: 16px;
+	/*letter-spacing: 0.42em;*/
+	text-align: center;
 }
 
 *.button {
@@ -42,10 +52,53 @@ a:focus {
 	font-weight: bold
 }
 
-*.menue {
-	background-color: silver;
+*.main_logo {
+	font-family: 'Courier New', Courier, monospace;
+	color: gray;
+	font-size: 24px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	text-align: center;
+	vertical-align: middle;
+	
 }
 
-td.menue:hover {
+img.main_logo {
+	vertical-align: middle;
+}
+
+
+
+table.buttons_top {
+	width: 100%;
+	text-align: center;	
+}
+	
+*.buttons {
+	font-family: 'Courier New', Courier, monospace;
+	color: gray;
+	font-size: 12px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.buttons {
+	width: 600px;
+	border-collapse: collapse;
+}
+
+td.buttons {
+	color: black;
+	border-width: 1px;
+	border-style: solid;
+	border-color: g;
+	border-spacing: 1px;
+	background-color: silver;
+	
+}
+
+td.buttons:hover {
 	background-color: gray;
+	color: white;
 }
