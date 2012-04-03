@@ -6,5 +6,9 @@
    <feature url="features/ch.bittailor.filetemplates.feature_3.0.1.201204032302.jar" id="ch.bittailor.filetemplates.feature" version="3.0.1.201204032302">
       <category name="bittailor.ch"/>
    </feature>
-   <category-def name="bittailor.ch" label="BITtailor"/>
+   <category-def name="bittailor.ch" label="BITtailor">
+      <description>
+         Category for all BITtailor features.
+      </description>
+   </category-def>
 </site>
