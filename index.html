@@ -1,62 +1,102 @@
-<!doctype html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
 <title>BITtailor</title>
-<link rel="icon" href="BtIcon.png" type="image/png">
-<link rel="stylesheet" href="stylesheets/styles.css">
-<link rel="stylesheet" href="stylesheets/pygment_trac.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="javascripts/main.js"></script>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="icon" href="img/icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="bittailor">
+
+<!-- styles -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+</style>
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+
 </head>
+
 <body>
 
-	<header>
-		<h1>BITtailor</h1>
-		<p>Code and tools for software development</p>
-	</header>
-
-	<div id="banner">
-		<div class="toolbar">
-			<span></span>
-			<!--
-			<ul>
-				 <li><a href="projects" class="button">Projects</a></li>
-				<li><a href="tutorials" class="button">Tutorials</a></li>
-				<li><a href="about" class="button">About</a></li>
-			</ul>
-			-->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#">BITtailor</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<!-- <li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li> -->
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
 		</div>
-
 	</div>
 
-	<div class="wrapper">
-		<nav>
-			<ul></ul>
-		</nav>
-		<section>
-
-			<h1>Projects</h1>
-
-			<h2>File Templates Wizard</h2>
-			<p>
-				A simple and flexible file template wizard for <a href="http://www.eclipse.org/">eclipse</a>.
-			</p>
-			<ul>
-				<li>Eclipse Update Site <code>http://bittailor.github.com/EclipseUpdateSite</code></li>
-				<li>Source code reposiory at <a href="https://github.com/bittailor/FileTemplatesWizard">GitHub</a></li>
-			</ul>
-
-		</section>
-		<footer>
-			<p>
-				<small>Hosted on <a href="https://github.com/">GitHub</a></small>
-			</p>
-		</footer>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="hero-unit">
+					<h1>BITtailor</h1>
+					<p>Tools, code and more somehow related to software development <span class="muted">(or not)</span>.</p>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">
+				<h2>File Templates Wizard</h2>
+				<p>A simple and flexible file template wizard for <a href="http://www.eclipse.org/">eclipse</a>.</p>
+				<ul class="unstyled">
+					<li><i class="icon-download"></i> Eclipse Update Site <code style="color: #09159E">http://bittailor.github.com/EclipseUpdateSite</code></li> 
+  					<li style="margin-top: 4px"><i class="icon-file"></i> Source code repository at <a href="https://github.com/bittailor/FileTemplatesWizard">GitHub <img style="vertical-align: baseline;" src="img/blacktocat-16.png"></a></li> 
+				</ul>
+				
+				<p>
+					
+				</p>
+			</div>
+			<!--/span-->
+			<div class="span4">
+				<h2>LED Matrix Night Light</h2>
+				<div><img class="img-rounded" src="img/night-light-small.png" align="left" style="margin-right: 5px" />
+				<p> 
+					A DIY children's night light with 16*16 RGB LEDs.<br/>
+					Uses an <a href="http://arduino.cc/en/Main/arduinoBoardUno">Arduino UNO</a> to display
+					the images on the four 8*8 RGB LED matrixes which are driven by four
+					<a href="http://imall.iteadstudio.com/development-platform/arduino/arduino-compatible-mainboard/im120410004.html">Colorduinos</a>.
+				</p>
+				<ul class="unstyled">
+					<li><i class="icon-file"></i> Source code repository at <a  href="https://github.com/bittailor/BtArduino/tree/master/NightLight">GitHub <img style="vertical-align: baseline;" src="img/blacktocat-16.png"></a></li> 
+				</ul>
+				</div>
+			</div>
+			<!--/span-->
+			<div class="span4">
+				<h2>AVR Boost.Build</h2>
+				<p><a href="http://www.boost.org/boost-build2/">Boost.Build</a> toolset rules for the AVR-GCC.</p>
+				<ul class="unstyled">
+					<li><i class="icon-file"></i> Source code repository at <a  href="https://github.com/bittailor/AvrBoostBuild">GitHub <img style="vertical-align: baseline;" src="img/blacktocat-16.png"></a></li> 
+				</ul>
+			</div>
+			<!--/span-->
+		</div>
+		
 	</div>
+	<!--/.fluid-container-->
+
+	<!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
