@@ -1,0 +1,9 @@
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+      <a class="blog-nav-item {% if page.url == "/index.html" or page.url contains "/blog/"  %}active{% endif %}" href="/">{{ site.name }}</a>
+      <a class="blog-nav-item {% if page.url contains "/projects/" %}active{% endif %}" href="/projects/">Projects</a>
+      <a class="blog-nav-item {% if page.url contains "/about/" %}active{% endif %}" href="/about/">About</a>
+    </nav>
+  </div>
+</div>

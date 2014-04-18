@@ -1,0 +1,19 @@
+---
+layout: default
+title: Projects
+---
+
+<div id="home">
+    {% for page in site.pages %}{% if page.url contains "/projects/p_" %}
+      <div class="panel panel-default">
+         <div class="panel-body">
+            {% if page.image %}<img class="img-rounded" src="/res/{{ page.image }}" width="75" height="75" align="right" style="margin-right: 5px">{% endif %}
+            <h4><a href="{{ page.url }}">{{ page.title }}</a></h4>
+            {{page.description}} <br/>
+            {% for tag in page.tags %}
+               <span class="label label-primary">{{ tag }}</span>
+            {% endfor %}
+         </div>
+      </div>
+    {% endif %}{% endfor %}
+</div>
