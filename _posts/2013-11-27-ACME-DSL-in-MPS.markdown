@@ -2,7 +2,7 @@
 layout: post
 title:  "Geek Gathering #2 - ACME DSL in MPS"
 date:   2013-11-27 12:00:00
-categories: blog side geekgathering
+categories: blog side
 ---
 
 My presentation from the november geek gathering:

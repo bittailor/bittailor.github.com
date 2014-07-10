@@ -2,7 +2,7 @@
 layout: post
 title:  "Geek Gathering #5 - More FUN with Arduino"
 date:   2014-04-16 07:50:03
-categories: blog side geekgathering
+categories: blog side
 ---
 
 My presentation and [instructions](https://github.com/bittailor/MoreFunWithArduino#more-fun-with-arduino) from the april geek gathering.

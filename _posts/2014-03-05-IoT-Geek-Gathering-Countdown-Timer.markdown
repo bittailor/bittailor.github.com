@@ -2,7 +2,7 @@
 layout: post
 title:  "Geek Gathering #4 - IoT Geek Gathering Countdown Timer"
 date:   2014-03-05 12:00:00
-categories: blog side geekgathering
+categories: blog side
 ---
 
 My presentation from the march geek gathering:
