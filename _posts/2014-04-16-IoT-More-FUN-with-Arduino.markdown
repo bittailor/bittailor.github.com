@@ -7,4 +7,4 @@ categories: blog side
 
 My presentation and [instructions](https://github.com/bittailor/MoreFunWithArduino#more-fun-with-arduino) from the april geek gathering.
 
-<iframe src="http://prezi.com/embed/iowlk3rxn1g5/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="550" height="400" frameBorder="0" webkitAllowFullScreen mozAllowFullscreen allowfullscreen></iframe>
+<iframe src="http://prezi.com/embed/iowlk3rxn1g5/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" frameBorder="0" webkitAllowFullScreen mozAllowFullscreen allowfullscreen></iframe>
