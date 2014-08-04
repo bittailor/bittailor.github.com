@@ -4,6 +4,7 @@ title: File Template Wizard
 description: A pragmatic file template wizard for eclipse.
 image: FileTemplateWizard.png
 tags: [ eclipse ]
+order: 50
 ---
 
 A pragmatic file template wizard for [eclipse](https://www.eclipse.org) based on the *[FreeMarker](http://freemarker.org)* template engine.

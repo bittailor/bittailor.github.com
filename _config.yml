@@ -1,3 +1,6 @@
 name: BITtailor
 markdown: redcarpet
-pygments: true
+
+collections:
+  projects:
+    output: true

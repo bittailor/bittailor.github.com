@@ -4,6 +4,7 @@ title: LED Matrix Night Light
 description: A DIY children's night light with 16*16 RGB LEDs.
 image: night-light-small.png
 tags: [ Arduino, LED-Matrix ]
+order: 40
 ---
 
 A DIY children's night light with 16\*16 RGB LEDs.
@@ -29,7 +30,7 @@ Uses an [Arduino UNO](http://arduino.cc/en/Main/arduinoBoardUno) as a master to 
     <div class="item">
         <img src="/res/night-light-raw1.png" alt="1">
         <div class="carousel-caption">
-         The Arduino controlling the Colorduinos 
+         The Arduino controlling the Colorduinos
         </div>
     </div>
     <div class="item">
