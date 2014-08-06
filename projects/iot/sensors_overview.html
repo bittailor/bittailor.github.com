@@ -1,82 +1,33 @@
 ---
 layout: default
-title: Sensors Overview
+title: IoT - Sensors Overview
 scripts: >
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
     <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
-    <script>
-    $(document).ready(function($) {
-
-        function SensorFeed(index, feedId) {
-            this.index = index;
-            this.feedId = feedId;
-        }
-
-        var feeds = [ new SensorFeed(1,1799984576), new SensorFeed(2,266417220) ];
-
-
-        // Set the Xively API key (https://xively.com/users/YOUR_USERNAME/keys)
-        xively.setKey( "BDgqbLdOcS8sprrRUxaQSWmgumjWFYh6WptXDYlg2QyXy1Xe" );
-        var updates = []
-
-        $.each(feeds, function(i,feed) {
-            // Replace with your own values
-            var feedID    = feed.feedId,          // Feed ID
-            datastreamID  = "connection_uptime",       // Datastream ID
-            selector      = "#uptime-sensor-" + feed.index;   // Your element on the page
-
-            var update_time = function(latestUpdate) {
-                var now = new Date();
-                var diff = (Math.abs(now - latestUpdate) / 1000)|0;
-                $("#latest-update-sensor-" + feed.index).html("" + diff);
-            }
-
-            xively.datastream.get (feedID, datastreamID, function ( datastream ) {
-                $(selector).html( datastream["current_value"] );
-                var latestUpdate = new Date(datastream["at"]);
-                update_time(latestUpdate);
-
-                xively.datastream.subscribe( feedID, datastreamID, function ( event , datastream_updated ) {
-                    $(selector).html( datastream_updated["current_value"]);
-                    latestUpdate = new Date(datastream_updated["at"]);
-                    update_time(latestUpdate);
-                });
-
-                updates.push(function(){
-                    update_time(latestUpdate);
-                });
-            });
-        });
-
-        window.setInterval(function(){
-            $.each(updates, function(i,v){
-                v();
-            });
-        }, 1000);
-    });
-    </script>
-
+    <script src="sensors_overview.js"></script>
 ---
 
-
-<h2>Connection Uptime</h2>
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>Sensor #</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
             <th>Connection Uptime [ms]</th>
-            <th>Last Update [s]</th>
+            <th>Reconnect Counter</th>
+            <th>Uptime [ms]</th>
+            <th>Last updated</th>
         </tr>
     <thead>
-    <tbody>
+    <tbody data-bind="foreach: sensors">
         <tr>
-            <td>1</td>
-            <td id="uptime-sensor-1"> - </td>
-            <td id="latest-update-sensor-1"> - </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td id="uptime-sensor-2"> - </td>
-            <td id="latest-update-sensor-2"> - </td>
+            <td> <span data-bind="text: index"></span></td>
+            <td> <span data-bind="text: Temperature"></span> °C</td>
+            <td> <span data-bind="text: Humidity"></span> %</td>
+            <td> <span data-bind="text: pretty_print_milliseconds(connection_uptime())"></span></td>
+            <td> <span data-bind="text: reconnect_counter"></span></td>
+            <td> <span data-bind="text: pretty_print_milliseconds(uptime())"></span></td>
+            <td> <span data-bind="text: ticker"></span>s <small>ago</small></td>
         </tr>
     </tbody>
 </table>
