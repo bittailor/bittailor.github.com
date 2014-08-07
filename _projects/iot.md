@@ -8,7 +8,8 @@ order: 10
 
 My buzzword enabled wireless sensor network. More will follow ...
 
-![](/res/MQTT-SN Overview.png)
+
+<img class="img-responsive" src="/res/MQTT-SN Overview.png" alt="" />
 
 .. but [here](iot/sensors_overview.html) are some sensors live data
 
