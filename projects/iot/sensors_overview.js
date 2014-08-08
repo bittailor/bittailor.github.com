@@ -28,10 +28,7 @@ function Sensor(index, feedId) {
 
 function ViewModel() {
     var self = this;
-    self.sensors = ko.observableArray([
-        new Sensor(1,1799984576),
-        new Sensor(2,266417220)
-    ]);
+    self.sensors = ko.observableArray();
 
     self.tick = function() {
         $.each(viewModel.sensors(), function(i,sensor) {
@@ -42,7 +39,7 @@ function ViewModel() {
 
 var viewModel = new ViewModel();
 
-$(document).ready(function($) {
+function start_xively() {
 
     xively.setKey( "BDgqbLdOcS8sprrRUxaQSWmgumjWFYh6WptXDYlg2QyXy1Xe" );
     var updates = []
@@ -64,7 +61,22 @@ $(document).ready(function($) {
         viewModel.tick();
     });
 
+}
+
+$(document).ready(function($) {
+
+    $.ajax({
+        url: "http://bittailor.cloudapp.net/nodes/sensors/all",
+        dataType: "jsonp",
+        success: function (data) {
+            $.each(data, function(i,sensor_info) {
+                viewModel.sensors.push(new Sensor(sensor_info.id, sensor_info.feedId))
+            });
+            start_xively();
+        }
+    });
 });
+
 
 function pretty_print_milliseconds(duration) {
     if (isNaN(duration)) return duration;
@@ -72,9 +84,14 @@ function pretty_print_milliseconds(duration) {
     var milliseconds = parseInt((duration%1000)/100)
         , seconds = parseInt((duration/1000)%60)
         , minutes = parseInt((duration/(1000*60))%60)
-        , hours = parseInt((duration/(1000*60*60))%24);
+        , hours = parseInt((duration/(1000*60*60))%24)
+        , days = parseInt(duration/(1000*60*60*24));
 
-    var result = ""
+    var result = "";
+
+    if(days > 0) {
+        return days + "d " + hours + "h " + minutes + "m " + seconds + "s " + milliseconds + "ms";
+    }
 
     if(hours > 0) {
         return hours + "h " + minutes + "m " + seconds + "s " + milliseconds + "ms";
