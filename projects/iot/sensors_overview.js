@@ -23,7 +23,6 @@ function Sensor(index, feedId) {
         var diff = (Math.abs(now - this.last_update()) / 1000)|0;
         this.ticker(diff);
     };
-
 }
 
 function ViewModel() {
@@ -60,7 +59,6 @@ function start_xively() {
     window.focus(function(){
         viewModel.tick();
     });
-
 }
 
 $(document).ready(function($) {
