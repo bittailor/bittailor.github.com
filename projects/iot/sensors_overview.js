@@ -36,11 +36,6 @@ function ViewModel() {
     }
 }
 
-$(document).bind("mobileinit", function() {
-    $.support.cors = true;
-    $.mobile.allowCrossDomainPages = true;
-});
-
 
 var viewModel = new ViewModel();
 
