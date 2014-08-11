@@ -13,7 +13,9 @@ function Sensor(index, feedId) {
     self.update = function(data) {
         this.last_update(new Date(data.updated));
         $.each(data.datastreams, function(i,datastream) {
-            self[datastream.id](datastream.current_value);
+            if (self[datastream.id]) {
+                self[datastream.id](datastream.current_value);
+            }
         });
         self.tick();
     };
