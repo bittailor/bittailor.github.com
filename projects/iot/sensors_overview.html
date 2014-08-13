@@ -23,13 +23,13 @@ scripts: >
     <thead>
     <tbody data-bind="foreach: sensors">
         <tr>
-            <td> <span data-bind="text: index"></span></td>
+            <td> <span data-bind="text: id"></span></td>
             <td> <span data-bind="text: Temperature"></span> °C</td>
             <td> <span data-bind="text: Humidity"></span> %</td>
-            <td> <span data-bind="text: pretty_print_milliseconds(connection_uptime())"></span></td>
+            <td> <span data-bind="text: pretty_print_seconds(connection_uptime()/1000)"></span></td>
             <td> <span data-bind="text: reconnect_counter"></span></td>
-            <td> <span data-bind="text: pretty_print_milliseconds(uptime())"></span></td>
-            <td> <span data-bind="text: ticker"></span>s <small>ago</small></td>
+            <td> <span data-bind="text: pretty_print_seconds(uptime()/1000)"></span></td>
+            <td> <span data-bind="text: pretty_print_seconds(ticker)"></span>s <small>ago</small></td>
         </tr>
     </tbody>
 </table>

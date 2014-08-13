@@ -1,7 +1,6 @@
-function Sensor(index, feedId) {
+function Sensor(id) {
     var self = this;
-    self.index = index;
-    self.feedId = feedId;
+    self.id = id;
     self.Humidity = ko.observable("...");
     self.Temperature = ko.observable("...");
     self.connection_uptime = ko.observable("...");
@@ -11,12 +10,12 @@ function Sensor(index, feedId) {
     self.ticker = ko.observable("...");
 
     self.update = function(data) {
-        this.last_update(new Date(data.updated));
-        $.each(data.datastreams, function(i,datastream) {
-            if (self[datastream.id]) {
-                self[datastream.id](datastream.current_value);
+        this.last_update(new Date(data.timestamp));
+        for (var prop in data) {
+            if (self[prop]) {
+                self[prop](data[prop]);
             }
-        });
+        }
         self.tick();
     };
 
@@ -36,48 +35,81 @@ function ViewModel() {
             sensor.tick();
         });
     }
+
+    self.update = function() {
+        $.ajax({ url: "http://bittailor.cloudapp.net/nodes/sensor?id=all", dataType: "jsonp"})
+           .done(function (data) {
+               var ids = [];
+               $.each(data.sensors, function(i,sensor_data) {
+                   ids.push(sensor_data.sensor_id);
+                   var sensors = $.grep(self.sensors(), function(sensor,index){
+                       return sensor.id == sensor_data.sensor_id;
+                   });
+                   if (sensors.length == 0){
+                       sensor  = new Sensor(sensor_data.sensor_id)
+                       sensor.update(sensor_data);
+                       self.sensors.push(sensor);
+                   } else {
+                       sensors[0].update(sensor_data);
+                   }
+               });
+               self.sensors.remove(function(sensor){
+                   return ids.indexOf(sensor.id) == -1;
+               });
+               self.sensors.sort();
+           })
+           .fail(function( jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+                console.log(errorThrown);
+           });
+
+
+        ;
+    }
 }
 
 
 var viewModel = new ViewModel();
 
-function start_xively() {
+$(document).ready(function($) {
 
-    xively.setKey( "BDgqbLdOcS8sprrRUxaQSWmgumjWFYh6WptXDYlg2QyXy1Xe" );
-    var updates = []
+    viewModel.update();
 
-    $.each(viewModel.sensors(), function(i,sensor) {
-        xively.feed.get (sensor.feedId, function ( data ) {
-            sensor.update(data);
-            xively.feed.subscribe(sensor.feedId, function ( event , data_updated ) {
-                sensor.update(data_updated);
-            });
-        });
-    });
+    window.setInterval(function(){
+        viewModel.update();
+    }, 5000);
 
     window.setInterval(function(){
         viewModel.tick();
     }, 1000);
 
-    window.focus(function(){
-        viewModel.tick();
-    });
-}
-
-$(document).ready(function($) {
-
-    $.ajax({
-        url: "http://bittailor.cloudapp.net/nodes/sensors/all",
-        dataType: "jsonp",
-        success: function (data) {
-            $.each(data, function(i,sensor_info) {
-                viewModel.sensors.push(new Sensor(sensor_info.id, sensor_info.feedId))
-            });
-            start_xively();
-        }
-    });
 });
 
+function pretty_print_seconds(duration) {
+    if (isNaN(duration)) return duration;
+
+    var   seconds = parseInt(duration%60)
+        , minutes = parseInt((duration/60)%60)
+        , hours = parseInt((duration/(60*60))%24)
+        , days = parseInt(duration/(60*60*24));
+
+    var result = "";
+
+    if(days > 0) {
+        return days + "d " + hours + "h " + minutes + "m " + seconds + "s " ;
+    }
+
+    if(hours > 0) {
+        return hours + "h " + minutes + "m " + seconds + "s ";
+    }
+
+    if(minutes > 0) {
+        return minutes + "m " + seconds + "s ";
+    }
+
+    return seconds + "s ";
+
+}
 
 function pretty_print_milliseconds(duration) {
     if (isNaN(duration)) return duration;
