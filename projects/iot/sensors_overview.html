@@ -22,7 +22,7 @@ scripts: >
         </tr>
     <thead>
     <tbody data-bind="foreach: sensors">
-        <tr>
+        <tr data-bind="attr: { class: line_decoration }" >
             <td> <span data-bind="text: id"></span></td>
             <td> <span data-bind="text: Temperature"></span> °C</td>
             <td> <span data-bind="text: Humidity"></span> %</td>

@@ -24,6 +24,13 @@ function Sensor(id) {
         var diff = (Math.abs(now - this.last_update()) / 1000)|0;
         this.ticker(diff);
     };
+
+    self.line_decoration = ko.computed(function() {
+        if (self.ticker() > 600) return 'danger'
+        if (self.ticker() > 120) return 'warning';
+        return "";
+    }, self);
+
 }
 
 function ViewModel() {
