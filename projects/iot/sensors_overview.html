@@ -48,8 +48,8 @@ scripts: >
 
     <div data-bind="foreach: graphs">
         <div class="row">
-            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id() + '/charts/1?width=auto&height=auto&days=3&dynamic=true'}" ></iframe></div>
-            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id() + '/charts/2?width=auto&height=auto&days=3&dynamic=true'}" ></iframe></div>
+            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id + '/charts/1?width=auto&height=auto&days=3&dynamic=true&color=#428bca'}" ></iframe></div>
+            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id + '/charts/2?width=auto&height=auto&days=3&dynamic=true&color=#428bca'}" ></iframe></div>
         </div>
     <div>
 
