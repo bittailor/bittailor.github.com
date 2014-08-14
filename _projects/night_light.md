@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: LED Matrix Night Light
 description: A DIY children's night light with 16*16 RGB LEDs.
 image: night-light-small.png

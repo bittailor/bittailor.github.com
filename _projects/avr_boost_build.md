@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: AVR Boost.Build
 description: Boost.Build toolset rules for the AVR-GCC to build Arduino with bjam.
 tags: [ avr, Arduino, gcc ]

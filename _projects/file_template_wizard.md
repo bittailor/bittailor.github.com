@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: File Template Wizard
 description: A pragmatic file template wizard for eclipse.
 image: FileTemplateWizard.png

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body>
+      {% include navigation.html %}
+
+      <div class="container">
+
+        <h3 class="page-header">{{ page.title }}</h3>
+        <div class="project-tags-line">
+         {% for tag in page.tags %}
+            <span class="label label-primary project-tags">{{ tag }}</span>
+         {% endfor %}
+        </div>
+
+
+
+         {{ content }}
+
+     </div><!-- /.container -->
+
+      {% include footer.html %}
+      {{ page.scripts }}
+   </body>
+</html>

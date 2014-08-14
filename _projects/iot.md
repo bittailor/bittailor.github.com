@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: Internet of Things
 description: My buzzword enabled wireless sensor network.
 tags: [ Raspberry Pi, Arduino, IoT, nRF24L01+, MQTT-SN, MQTT, Node-RED  ]
