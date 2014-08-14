@@ -35,6 +35,9 @@ function Sensor(id) {
 
 function ViewModel() {
     var self = this;
+
+    self.graphs = [ { id : ko.observable("15134") }, { id : ko.observable("15135") }, { id : ko.observable("15136") }  ]
+
     self.sensors = ko.observableArray();
 
     self.tick = function() {
@@ -44,7 +47,7 @@ function ViewModel() {
     }
 
     self.update = function() {
-        $.ajax({ url: "http://bittailor.cloudapp.net/nodes/sensor?id=all", dataType: "jsonp"})
+        $.getJSON("http://bittailor.cloudapp.net/nodes/sensor?id=all&callback=?")
            .done(function (data) {
                var ids = [];
                $.each(data.sensors, function(i,sensor_data) {

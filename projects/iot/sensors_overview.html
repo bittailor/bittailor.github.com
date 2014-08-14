@@ -1,36 +1,73 @@
 ---
 layout: default
-title: IoT - Sensors Overview
+title: IoT - Sensors
 scripts: >
     <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
     <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
     <script src="sensors_overview.js"></script>
 ---
 
+<div class="page-header">
+  <h4>Overview</h4>
+</div>
 
-<div class="table-responsive">
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Sensor #</th>
-            <th>Temperature</th>
-            <th>Humidity</th>
-            <th>Connection Uptime</th>
-            <th>Reconnect Counter</th>
-            <th>Uptime</th>
-            <th>Last updated</th>
-        </tr>
-    <thead>
-    <tbody data-bind="foreach: sensors">
-        <tr data-bind="attr: { class: line_decoration }" >
-            <td> <span data-bind="text: id"></span></td>
-            <td> <span data-bind="text: Temperature"></span> °C</td>
-            <td> <span data-bind="text: Humidity"></span> %</td>
-            <td> <span data-bind="text: pretty_print_seconds(connection_uptime()/1000)"></span></td>
-            <td> <span data-bind="text: reconnect_counter"></span></td>
-            <td> <span data-bind="text: pretty_print_seconds(uptime()/1000)"></span></td>
-            <td> <span data-bind="text: pretty_print_seconds(ticker)"></span>s <small>ago</small></td>
-        </tr>
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sensor #</th>
+                        <th>Temperature</th>
+                        <th>Humidity</th>
+                        <th>Connection Uptime</th>
+                        <th>Reconnect Counter</th>
+                        <th>Uptime</th>
+                        <th>Last updated</th>
+                    </tr>
+                <thead>
+                <tbody data-bind="foreach: sensors">
+                    <tr data-bind="attr: { class: line_decoration }" >
+                        <td> <span data-bind="text: id"></span></td>
+                        <td> <span data-bind="text: Temperature"></span> °C</td>
+                        <td> <span data-bind="text: Humidity"></span> %</td>
+                        <td> <span data-bind="text: pretty_print_seconds(connection_uptime()/1000)"></span></td>
+                        <td> <span data-bind="text: reconnect_counter"></span></td>
+                        <td> <span data-bind="text: pretty_print_seconds(uptime()/1000)"></span></td>
+                        <td> <span data-bind="text: pretty_print_seconds(ticker)"></span>s <small>ago</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="page-header">
+  <h4>History</small></h4>
+</div>
+
+    <div data-bind="foreach: graphs">
+        <div class="row">
+            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id() + '/charts/1?width=auto&height=auto&days=3&dynamic=true'}" ></iframe></div>
+            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id() + '/charts/2?width=auto&height=auto&days=3&dynamic=true'}" ></iframe></div>
+        </div>
+    <div>
+
+<!--
+<div class="row">
+  <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/15134/charts/1?width=auto&height=auto&days=3&dynamic=true" ></iframe></div>
+  <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/15134/charts/2?width=auto&height=auto&days=3&dynamic=true" ></iframe></div>
+</div>
+
+<div class="row">
+  <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/15135/charts/1?width=auto&height=auto&results=60&dynamic=true" ></iframe></div>
+  <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/15135/charts/2?width=auto&height=auto&results=60&dynamic=true" ></iframe></div>
+</div>
+
+<div class="row">
+  <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/15136/charts/1?width=auto&height=auto&results=60&dynamic=true" ></iframe></div>
+  <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/15136/charts/2?width=auto&height=auto&results=60&dynamic=true" ></iframe></div>
+</div>
+-->
+
 </div>
