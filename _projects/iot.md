@@ -11,8 +11,11 @@ My buzzword enabled wireless sensor network. More will follow ...
 
 <img class="img-responsive" src="/res/MQTT-SN Overview.png" alt="" />
 
-.. but [here](iot/sensors_overview.html) are some sensors live data
 
+... here some live data:
+
+* [Sensors status overview](iot/sensors_status.html)
+* [Sensors overview](iot/sensors_overview.html)
 
 
 #### Source Code
