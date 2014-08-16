@@ -36,7 +36,15 @@ function Sensor(id) {
 function ViewModel() {
     var self = this;
 
-    self.graphs = [ { id : "15134" }, { id : "15135" }, { id : "15136" }  ]
+    self.graphs = [ { id : "15134" }, { id : "15135" }, { id : "15136" }  ];
+
+
+
+    self.days = ko.observable("1");
+
+    self.averages = ["0", "10", "15", "20", "30", "60", "240", "720", "1440", "daily"]
+    self.average = ko.observable("10");
+
 
     self.sensors = ko.observableArray();
 

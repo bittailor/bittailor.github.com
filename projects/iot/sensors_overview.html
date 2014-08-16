@@ -42,14 +42,29 @@ scripts: >
     </div>
 </div>
 
+
+
 <div class="page-header">
   <h4>History</small></h4>
 </div>
 
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">Display</div>
+            <div class="col-md-2"><input class="form-control" data-bind="value: days" /></div>
+            <div class="col-md-2">days</div>
+            <div class="col-md-2">Average over</div>
+            <div class="col-md-2"><select class="form-control" data-bind="options: averages, value: average"></select></div>
+            <div class="col-md-2">minutes</div>
+        </div>
+    </div>
+</div>
+
     <div data-bind="foreach: graphs">
         <div class="row">
-            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id + '/charts/1?width=auto&height=auto&days=3&dynamic=true&color=#428bca'}" ></iframe></div>
-            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id + '/charts/2?width=auto&height=auto&days=3&dynamic=true&color=#428bca'}" ></iframe></div>
+            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id + '/charts/1?width=auto&height=auto&days=' + $root.days() + '&average=' + $root.average() + '&dynamic=true&color=#428bca'}" ></iframe></div>
+            <div class="col-md-6"><iframe width="100%" height="260" style="border: 1px solid #cccccc;" data-bind="attr: { src: 'http://api.thingspeak.com/channels/' + id + '/charts/2?width=auto&height=auto&days=' + $root.days() + '&average=' + $root.average() + '&dynamic=true&color=#428bca'}" ></iframe></div>
         </div>
     <div>
 
