@@ -28,7 +28,7 @@ function Sensor(id) {
     self.line_decoration = ko.computed(function() {
         if (self.ticker() > 600) return 'danger'
         if (self.ticker() > 120) return 'warning';
-        return "";
+        return "success";
     }, self);
 
 }

@@ -14,7 +14,7 @@ scripts: >
 <div class="row">
     <div class="col-md-12">
         <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Sensor #</th>
@@ -34,7 +34,7 @@ scripts: >
                         <td> <span data-bind="text: pretty_print_seconds(connection_uptime()/1000)"></span></td>
                         <td> <span data-bind="text: reconnect_counter"></span></td>
                         <td> <span data-bind="text: pretty_print_seconds(uptime()/1000)"></span></td>
-                        <td> <span data-bind="text: pretty_print_seconds(ticker)"></span>s <small>ago</small></td>
+                        <td> <span data-bind="text: pretty_print_seconds(ticker())"></span>s <small>ago</small></td>
                     </tr>
                 </tbody>
             </table>
