@@ -4,7 +4,7 @@ title: Projects
 ---
 
 <div id="home">
-    {% assign projects = site.collections.projects.docs | sort: 'order' %}
+    {% assign projects = site.projects | sort: 'order' %}
     {% for page in projects %}
       <div class="panel panel-default">
          <div class="panel-body">

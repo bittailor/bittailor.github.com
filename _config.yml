@@ -1,5 +1,4 @@
 name: BITtailor
-markdown: redcarpet
 
 collections:
   projects:
