@@ -1,9 +1,52 @@
-/*
- * Globals
- */
+
+ @font-face {
+     font-family: 'DejaVu Sans Mono';
+     src: url('DejaVuSansMono-Bold-webfont.eot');
+     src: url('DejaVuSansMono-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+          url('DejaVuSansMono-Bold-webfont.woff') format('woff'),
+          url('DejaVuSansMono-Bold-webfont.ttf') format('truetype'),
+          url('DejaVuSansMono-Bold-webfont.svg#dejavu_sans_monobold') format('svg');
+     font-weight: 700;
+     font-style: normal;
+ }
+
+@font-face {
+    font-family: 'DejaVu Sans Mono';
+    src: url('DejaVuSansMono-webfont.eot');
+    src: url('DejaVuSansMono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DejaVuSansMono-webfont.woff') format('woff'),
+         url('DejaVuSansMono-webfont.ttf') format('truetype'),
+         url('DejaVuSansMono-webfont.svg#dejavu_sans_monobook') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DejaVu Sans Mono';
+    src: url('DejaVuSansMono-BoldOblique-webfont.eot');
+    src: url('DejaVuSansMono-BoldOblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DejaVuSansMono-BoldOblique-webfont.woff') format('woff'),
+         url('DejaVuSansMono-BoldOblique-webfont.ttf') format('truetype'),
+         url('DejaVuSansMono-BoldOblique-webfont.svg#dejavu_sans_monobold_oblique') format('svg');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DejaVu Sans Mono';
+    src: url('DejaVuSansMono-Oblique-webfont.eot');
+    src: url('DejaVuSansMono-Oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DejaVuSansMono-Oblique-webfont.woff') format('woff'),
+         url('DejaVuSansMono-Oblique-webfont.ttf') format('truetype'),
+         url('DejaVuSansMono-Oblique-webfont.svg#dejavu_sans_monooblique') format('svg');
+    font-weight: 400;
+    font-style: italic;
+
+}
+
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "DejaVu Sans Mono", Georgia, "Times New Roman", Times, serif;
   color: #555;
 }
 
@@ -14,7 +57,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "DejaVu Sans Mono", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #333;
 }
